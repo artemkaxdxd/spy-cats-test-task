@@ -1,0 +1,46 @@
+services:
+  postgres:
+    image: postgres:17.2-alpine3.21
+    container_name: sca_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-sca_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sca_password}
+      POSTGRES_DB: ${POSTGRES_DB_NAME:-spy_cat_agency}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-sca_user} -d ${POSTGRES_DB_NAME:-spy_cat_agency}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+    networks:
+      - spy-cat-network
+
+  app:
+    build: .
+    container_name: spy-cat-app
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: ${POSTGRES_USER:-sca_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-sca_password}
+      POSTGRES_DB_NAME: ${POSTGRES_DB_NAME:-spy_cat_agency}
+      SERVER_PORT: ${SERVER_PORT:-8080}
+      SERVER_IS_DEV: ${SERVER_IS_DEV:-true}
+    ports:
+      - "${SERVER_PORT:-8080}:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - spy-cat-network
+
+volumes:
+  postgres_data:
+
+networks:
+  spy-cat-network:
+    driver: bridge

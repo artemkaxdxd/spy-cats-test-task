@@ -1,0 +1,432 @@
+{
+	"info": {
+		"_postman_id": "00447c19-101e-4372-a3fb-d655926c2070",
+		"name": "spy-cats-test-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30436283"
+	},
+	"item": [
+		{
+			"name": "Cats",
+			"item": [
+				{
+					"name": "Cats",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cats",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cat By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/cats/3",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cats",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cat",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"007-cat\",\n    \"years_experience\": 2,\n    \"breed\": \"bombay\",\n    \"salary\": 100\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/cats",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Cat",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"salary\": 200\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/cats/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cats",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Cat",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"\",\n\"years_experience\":\"\",\n\"breed\":\"\",\n\"salary\":\"\",\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/cats/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"cats",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Missions",
+			"item": [
+				{
+					"name": "Missions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/missions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mission By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/missions/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Mission",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cat_id\": null,\n  \"targets\": [\n    {\n      \"name\": \"Dr. Viktor Petrov\",\n      \"country\": \"Russia\",\n      \"notes\": \"High-value target, operates from Moscow embassy\"\n    },\n    {\n      \"name\": \"Elena Kozlova\",\n      \"country\": \"Belarus\",\n      \"notes\": \"Intelligence officer, frequent traveler\"\n    },\n    {\n      \"name\": \"Dimitri Volkov\",\n      \"country\": \"Russia\",\n      \"notes\": \"Arms dealer, based in Kyiv\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/missions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Mission",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/missions/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Assign Mission Cat",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cat_id\": null,\n  \"targets\": [\n    {\n      \"name\": \"Dr. Viktor Petrov\",\n      \"country\": \"Russia\",\n      \"notes\": \"High-value target, operates from Moscow embassy\"\n    },\n    {\n      \"name\": \"Elena Kozlova\",\n      \"country\": \"Belarus\",\n      \"notes\": \"Intelligence officer, frequent traveler\"\n    },\n    {\n      \"name\": \"Dimitri Volkov\",\n      \"country\": \"Russia\",\n      \"notes\": \"Arms dealer, based in Kyiv\"\n    },\n    \n    {\n      \"name\": \"Dimitri Volkov\",\n      \"country\": \"Russia\",\n      \"notes\": \"Arms dealer, based in Kyiv\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/missions/4/assign/4",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"4",
+								"assign",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Mission",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"cat_id\": null,\n  \"targets\": [\n    {\n      \"name\": \"Dr. Viktor Petrov\",\n      \"country\": \"Russia\",\n      \"notes\": \"High-value target, operates from Moscow embassy\"\n    },\n    {\n      \"name\": \"Elena Kozlova\",\n      \"country\": \"Belarus\",\n      \"notes\": \"Intelligence officer, frequent traveler\"\n    },\n    {\n      \"name\": \"Dimitri Volkov\",\n      \"country\": \"Russia\",\n      \"notes\": \"Arms dealer, based in Kyiv\"\n    },\n    \n    {\n      \"name\": \"Dimitri Volkov\",\n      \"country\": \"Russia\",\n      \"notes\": \"Arms dealer, based in Kyiv\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/missions/4/complete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"4",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Target",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Elena Kozlova\",\n    \"country\": \"Belarus\",\n    \"notes\": \"Intelligence officer, frequent traveler\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/missions/1/targets",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"1",
+								"targets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Target",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notes\":\"some-notes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/missions/1/targets/1",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"1",
+								"targets",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Target",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notes\":\"some-notes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/missions/1/targets/1/complete",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"1",
+								"targets",
+								"1",
+								"complete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Target",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"notes\":\"some-notes\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/missions/1/targets/2",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"missions",
+								"1",
+								"targets",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ping",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/ping",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"ping"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": ""
+		}
+	]
+}
